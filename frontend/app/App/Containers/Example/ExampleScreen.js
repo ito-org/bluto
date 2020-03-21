@@ -6,6 +6,7 @@ import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
+import Wifi from '../Wifi/Wifi'
 
 /**
  * This is an example of a container component.
@@ -20,10 +21,6 @@ const instructions = Platform.select({
 })
 
 class ExampleScreen extends React.Component {
-  componentDidMount() {
-    this._fetchUser()
-  }
-
   render() {
     return (
       <View
@@ -34,9 +31,7 @@ class ExampleScreen extends React.Component {
           Metrics.mediumVerticalMargin,
         ]}
       >
-        {this.props.userIsLoading ? (
-          <ActivityIndicator size="large" color="#0000ff" />
-        ) : (
+
           <View>
             <View style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
@@ -47,22 +42,12 @@ class ExampleScreen extends React.Component {
               <Text style={Style.error}>{this.props.userErrorMessage}</Text>
             ) : (
               <View>
-                <Text style={Style.result}>
-                  {"I'm a fake user, my name is "}
-                  {this.props.user.name}
-                </Text>
-                <Text style={Style.result}>
-                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
-                </Text>
+                <Text>Wifi</Text>
+                <Wifi/>
               </View>
             )}
-            <Button
-              style={ApplicationStyles.button}
-              onPress={() => this._fetchUser()}
-              title="Refresh"
-            />
+
           </View>
-        )}
       </View>
     )
   }
