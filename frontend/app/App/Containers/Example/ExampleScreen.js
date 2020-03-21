@@ -23,33 +23,8 @@ const instructions = Platform.select({
 class ExampleScreen extends React.Component {
   render() {
     return (
-      <View
-        style={[
-          Helpers.fill,
-          Helpers.rowMain,
-          Metrics.mediumHorizontalMargin,
-          Metrics.mediumVerticalMargin,
-        ]}
-      >
-
-          <View>
-            <View style={Style.logoContainer}>
-              <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
-            </View>
-            <Text style={Style.text}>To get started, edit App.js</Text>
-            <Text style={Style.instructions}>{instructions}</Text>
-            {this.props.userErrorMessage ? (
-              <Text style={Style.error}>{this.props.userErrorMessage}</Text>
-            ) : (
-              <View>
-                <Text>Wifi</Text>
                 <Wifi/>
-              </View>
-            )}
-
-          </View>
-      </View>
-    )
+            )
   }
 
   _fetchUser() {
