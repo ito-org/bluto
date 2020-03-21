@@ -37,7 +37,7 @@ class ExampleScreen extends React.Component {
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <View>
+          <View style={{ flex: 1 }}>
             <View style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
             </View>
