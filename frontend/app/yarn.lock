@@ -2868,6 +2868,11 @@ eventemitter3@^3.0.0:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
 
+events@^1.0.2:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+  integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
+
 exec-sh@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/exec-sh/-/exec-sh-0.3.2.tgz#6738de2eb7c8e671d0366aea0b0db8c6f7d7391b"
@@ -5940,6 +5945,13 @@ react-native-gesture-handler@^1.3.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-multipeer@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-multipeer/-/react-native-multipeer-0.1.1.tgz#bac31e281f645a4f28f80766020212a9682ed4fb"
+  integrity sha1-usMeKB9kWk8o+AdmAgISqWgu1Ps=
+  dependencies:
+    events "^1.0.2"
+
 react-native-rename@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/react-native-rename/-/react-native-rename-2.4.1.tgz#54256367b0375ae49f5026b35914d5ba2a229221"
@@ -5976,6 +5988,11 @@ react-native-tab-view@^1.4.1:
   integrity sha512-Bke8KkDcDhvB/z0AS7MnQKMD2p6Kwfc1rSKlMOvg9CC5CnClQ2QEnhPSbwegKDYhUkBI92iH/BYy7hNSm5kbUQ==
   dependencies:
     prop-types "^15.6.1"
+
+react-native-wifi-p2p@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-wifi-p2p/-/react-native-wifi-p2p-1.0.2.tgz#4d770113fd040e7bdeafa7fcdad9c8e32fe8624d"
+  integrity sha512-tmM6ofrCm1xTUZ9hWTgDEMOXg3ypdTWRISyXMhYLnwuv8wH5OvA1pjKYw1WAOftO22LudytNyWm8OAM3JbJ4Tg==
 
 react-native@0.61.5:
   version "0.61.5"

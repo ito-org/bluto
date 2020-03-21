@@ -20,6 +20,8 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-gesture-handler": "^1.3.0",
+    "react-native-multipeer": "^0.1.1",
+    "react-native-wifi-p2p": "^1.0.2",
     "react-navigation": "^3.11.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
