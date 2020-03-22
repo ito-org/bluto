@@ -6,78 +6,58 @@ import LeftSvg from '../../Assets/Images/Backgrounds/Left.svg'
 import RightSvg from '../../Assets/Images/Backgrounds/Right.svg'
 
 
-const $Container = styled.View`
-height: ${Math.round(Dimensions.get('window').height)}px;
-width: ${Math.round(Dimensions.get('window').width)}px;
-position: absolute;
-`
-
-const $Bottom = styled.View`
-bottom: -350px;
-position: absolute;
-left: -30px;
-flex: 1;
-height: ${Math.round(Dimensions.get('window').height)}px;
-width: ${Math.round(Dimensions.get('window').width)}px;
-`
-
-const $BottomAnimated = Animated.createAnimatedComponent($Bottom)
-
-const $Right = styled.View`
-top: 0px;
-position: absolute;
-z-index: 0;
-right: -80px;
-flex: 1;
-height: ${Math.round(Dimensions.get('window').height)}px;
-width: ${Math.round(Dimensions.get('window').width)}px;
-`
-
-const $Left = styled.View`
-top: 0px;
-position: absolute;
-z-index: 0;
-left: -150px;
-flex: 1;
-height: ${Math.round(Dimensions.get('window').height)}px;
-width: ${Math.round(Dimensions.get('window').width)}px;
-`
-
-
-
-const Background = () => {
-  const [bottomIn] = useState(new Animated.Value(-1000))
+const SlideIn = ({fromValue, toValue, position, children, left}) => {
+  const [startValue] = useState(new Animated.Value(fromValue))
   React.useEffect(() => {
     Animated.timing(
-      bottomIn,
+      startValue,
       {
-        toValue: -350,
-        duration: 3000,
+        toValue: toValue,
+        duration: 600,
       }
     ).start();
   }, [])
 
+
+  return (
+    <Animated.View
+      style={{
+        height: Math.round(Dimensions.get('window').height),
+        width: Math.round(Dimensions.get('window').width),
+        position: 'absolute',
+        zIndex: 0,
+        left: left,
+        [position]: startValue,
+
+      }}
+    >
+      {children}
+    </Animated.View>
+  )
+}
+
+
+const Background = () => {
     return (
       <Fragment>
-
-        <$Right>
+        <SlideIn fromValue={-1000} left='auto' toValue={-80} position='right'>
           <RightSvg
             width="100%"
             height="70%"
           />
-        </$Right>
-        <$Left>
+        </SlideIn>
+        <SlideIn fromValue={-1000} left='auto'  toValue={-150} position='left'>
           <LeftSvg
             width="100%"
             height="70%"
           />
-        </$Left>
-        <$BottomAnimated  style={{ bottom: bottomIn }}>
+        </SlideIn>
+        <SlideIn fromValue={-1000} left={-30}  toValue={-320} position='bottom'>
           <BottomSvg
             width="100%"
             height="70%"
           />
-        </$BottomAnimated>
+        </SlideIn>
       </Fragment>
     )
 }
