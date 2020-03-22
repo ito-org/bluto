@@ -13,6 +13,8 @@ bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infi
 - [Komponenten](#komnponenten)
 - [Ausblick](#ausblick)
 
+bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
+
 ## Idee
 
 Wir möchten eine Applikation bereitstellen, welche eine zuverlässige Nachverfolgbarkeit potentiell ansteckender Kontakte ermöglicht. Datensicherheit ist dabei unser höchstes Gebot.
