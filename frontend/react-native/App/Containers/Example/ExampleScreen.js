@@ -13,14 +13,13 @@ import Background from '../../Components/Background/Background'
 import InfoBox from '../../Components/InfoBox/InfoBox'
 import * as helpers from 'App/Helpers/helpers'
 
-
 const $ContainerDataInfo = styled.View`
-position: absolute;
-bottom: 10px;
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 /**
  * This is an example of a container component.
@@ -34,18 +33,17 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
 })
 
-class StartScreen extends React.Component {
+class ExampleScreen extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       statusText: props.statusText,
       infoText: props.infoText,
       amountContacts: props.amountContacts,
       isInfected: props.isInfected,
-      daysAgo: props.daysAgo
-    };
+      daysAgo: props.daysAgo,
+    }
   }
-
 
   componentDidMount() {
     this._fetchUser()
@@ -61,29 +59,37 @@ class StartScreen extends React.Component {
           Metrics.mediumVerticalMargin,
         ]}
       >
-
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
-          <View style={{position: 'relative', flex: 1 }}>
-            <Background numContacts={this.state.amountContacts} isInfected={this.state.isInfected}/>
+          <View style={{ position: 'relative', flex: 1 }}>
+            <Background
+              numContacts={this.state.amountContacts}
+              isInfected={this.state.isInfected}
+            />
             <View style={Style.logoContainer}>
-              <Image style={Helpers.fullSize} source={helpers.getStatusAttributes(this.state.amountContacts, this.state.isInfected).image} resizeMode={'contain'} />
+              <Image
+                style={Helpers.fullSize}
+                source={
+                  helpers.getStatusAttributes(this.state.amountContacts, this.state.isInfected)
+                    .image
+                }
+                resizeMode={'contain'}
+              />
             </View>
-            <StatusBox {...this.state}/>
-            <InfoBox {...this.state}/>
-            {!this.state.isInfected ?
-              <Buttons.Tips text='Tipps im Kampf gegen Corona'/>
-              :
-              <Buttons.Infected text={`Verwende diesen Qr-Code\n um dich testen zu lassen.`}/>
-            }
+            <StatusBox {...this.state} />
+            <InfoBox {...this.state} />
+            {!this.state.isInfected ? (
+              <Buttons.Tips text="Tipps im Kampf gegen Corona" />
+            ) : (
+              <Buttons.Infected text={`Verwende diesen Qr-Code\n um dich testen zu lassen.`} />
+            )}
             <$ContainerDataInfo>
-              <Buttons.DataInfo text='Wie diese Daten berechnet werden' />
+              <Buttons.DataInfo text="Wie diese Daten berechnet werden" />
             </$ContainerDataInfo>
           </View>
         )}
       </View>
-
     )
   }
 
@@ -92,7 +98,7 @@ class StartScreen extends React.Component {
   }
 }
 
-StartScreen.propTypes = {
+ExampleScreen.propTypes = {
   user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
@@ -107,7 +113,7 @@ const mapStateToProps = (state) => ({
   liveInEurope: liveInEurope(state),
   amountContacts: 150,
   isInfected: false,
-  daysAgo: 5
+  daysAgo: 5,
 })
 
 const mapDispatchToProps = (dispatch) => ({
