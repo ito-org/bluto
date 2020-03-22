@@ -10,7 +10,7 @@
 # Bluto Corona Tracker
 
 <div>
-    <img src="App/Assets/Images/DemoGif.gif" alt="Logo" width="100%">
+    <img src="App/Assets/Images/DemoGif.gif" alt="Logo" width="350px">
 </div>
 
 
