@@ -7,6 +7,7 @@ import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 import StatusBox from '../../Components/StatusBox/StatusBox'
+import BottomSvg from '../../Assets/Images/Backgrounds/Bottom.svg'
 /**
  * This is an example of a container component.
  *
@@ -46,12 +47,19 @@ class ExampleScreen extends React.Component {
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           <View style={{ flex: 1 }}>
+            <View>
+              <BottomSvg
+                width="100%"
+                height="70%"
+              />
+            </View>
             <View style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
             </View>
             <StatusBox {...this.state}/>
           </View>
         )}
+
       </View>
     )
   }
