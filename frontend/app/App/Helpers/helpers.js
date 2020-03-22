@@ -1,41 +1,50 @@
+import { Images } from 'App/Theme'
 
-
-export const getColors = (num, isInfected) => {
-  let color = {
-    right: null,
-    left: null,
-    buttom: null
+export const getStatusAttributes = (num, isInfected) => {
+  let attributes = {
+    color: {
+      right: null,
+      left: null,
+      bottom: null
+    },
+    image: null
   }
+
   if(!isInfected) {
     if (num < 10) {
       //Green
-      color.right = '#128543'
-      color.left = '#77B576'
-      color.bottom = '#286C45'
+      attributes.color.right = '#128543'
+      attributes.color.left = '#77B576'
+      attributes.color.bottom = '#286C45'
+      attributes.image = Images.greenBluto
     }
 
     else if (num < 50) {
       //Yellow
-      color.right = '#FFBD80'
-      color.left = '#FDD46B'
-      color.bottom = '#F3BF39'
+      attributes.color.right = '#FFBD80'
+      attributes.color.left = '#FDD46B'
+      attributes.color.bottom = '#F3BF39'
+      attributes.image = Images.yellowBluto
 
     }
 
     else if (num > 50) {
       //Orange
-      color.right = '#EB915F'
-      color.left = '#E27F5F'
-      color.bottom = '#CE693D'
+      attributes.color.right = '#EB915F'
+      attributes.color.left = '#E27F5F'
+      attributes.color.bottom = '#CE693D'
+      attributes.image = Images.orangeBluto
 
     }
   }
   else {
-    color.right = '#C4082A'
-    color.left = '#D05A5A'
-    color.bottom = '#940707'
+    attributes.color.right = '#C4082A'
+    attributes.color.left = '#D05A5A'
+    attributes.color.bottom = '#940707'
+    attributes.image = Images.redBluto
   }
 
-  return color
+  return attributes
 
 }
+

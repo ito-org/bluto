@@ -44,21 +44,21 @@ const Background = ({numContacts, isInfected}) => {
           <RightSvg
             width="100%"
             height="70%"
-            fill={helpers.getColors(numContacts, isInfected).right}
+            fill={helpers.getStatusAttributes(numContacts, isInfected).color.right}
           />
         </SlideIn>
         <SlideIn fromValue={-1000} left='auto'  toValue={-150} position='left'>
           <LeftSvg
             width="100%"
             height="70%"
-            fill={helpers.getColors(numContacts, isInfected).left}
+            fill={helpers.getStatusAttributes(numContacts, isInfected).color.left}
           />
         </SlideIn>
         <SlideIn fromValue={-1000} left={-30}  toValue={-320} position='bottom'>
           <BottomSvg
             width="100%"
             height="70%"
-            fill={helpers.getColors(numContacts, isInfected).bottom}
+            fill={helpers.getStatusAttributes(numContacts, isInfected).color.bottom}
           />
         </SlideIn>
       </Fragment>

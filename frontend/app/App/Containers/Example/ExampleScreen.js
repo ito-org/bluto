@@ -11,6 +11,7 @@ import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 import StatusBox from '../../Components/StatusBox/StatusBox'
 import Background from '../../Components/Background/Background'
 import InfoBox from '../../Components/InfoBox/InfoBox'
+import * as helpers from 'App/Helpers/helpers'
 
 
 const $ContainerDataInfo = styled.View`
@@ -65,7 +66,7 @@ class ExampleScreen extends React.Component {
           <View style={{position: 'relative', flex: 1 }}>
             <Background numContacts={this.state.amountContacts} isInfected={false}/>
             <View style={Style.logoContainer}>
-              <Image style={Helpers.fullSize} source={Images.orangeBluto} resizeMode={'contain'} />
+              <Image style={Helpers.fullSize} source={helpers.getStatusAttributes(this.state.amountContacts, false).image} resizeMode={'contain'} />
             </View>
             <StatusBox {...this.state}/>
             <InfoBox {...this.state}/>
