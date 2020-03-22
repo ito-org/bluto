@@ -55,5 +55,5 @@ Eine weitere Idee ist es, das Infektionsrisiko über die Dauer und Entfernung zu
 
 ## UI
 
-![Splash Screen](doc\images\splash_mock_up.png)
+![Splash Screen](doc/images/splash_mock_up.png)
 ![Kontakt infiziert](doc/images/infected_contact_mock_up.png)
