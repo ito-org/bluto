@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform, Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Platform, Text, View, Button, ActivityIndicator, Image, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
@@ -44,6 +44,7 @@ class ExampleScreen extends React.Component {
           Metrics.mediumVerticalMargin,
         ]}
       >
+
         {this.props.userIsLoading ? (
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (

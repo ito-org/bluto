@@ -23,8 +23,8 @@ export default StyleSheet.create({
   },
   logoContainer: {
     ...Helpers.fullWidth,
-    height: 300,
-    marginTop: 25,
+    height: 250,
+    marginTop: 35,
     marginBottom: 25,
   },
   result: {
