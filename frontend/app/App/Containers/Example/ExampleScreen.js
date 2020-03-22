@@ -63,7 +63,7 @@ class ExampleScreen extends React.Component {
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           <View style={{position: 'relative', flex: 1 }}>
-            <Background />
+            <Background numContacts={this.state.amountContacts} isInfected={false}/>
             <View style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.orangeBluto} resizeMode={'contain'} />
             </View>
@@ -101,7 +101,7 @@ const mapStateToProps = (state) => ({
   statusText: 'Ich konnte keinen infizierten \n' +
   'Kontakt feststellen.',
   infoText: 'Versuche deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen Corona',
-  amountContacts: 120,
+  amountContacts: 105,
 })
 
 const mapDispatchToProps = (dispatch) => ({
