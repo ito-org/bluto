@@ -163,3 +163,10 @@ If we look at the rest (and ignore unmaintained projects), many popular boilerpl
 Finally some did not contain the architecture we are looking for (the separation of concerns with Redux, Sagas, etc.), for example [re-start](https://github.com/react-everywhere/re-start).
 
 One interesting exception is [Ignite IR Boilerplate "Andross"](https://github.com/infinitered/ignite-ir-boilerplate-andross), but after consideration we decided not to use it because of the large amount of unnecessary code/components it provided.
+
+
+## How to adapt the ui
+Go to file ExampleScreen.js in function mapStateToProps change the following values:
+-amountContacts: 5,
+-isInfected: true,
+-daysAgo: 5
