@@ -1,5 +1,5 @@
-<div>
-    <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="450px" margin="auto">
+<div style="display: flex; justify-content: center; aign-items: center;">
+    <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="450px">
 </div>
 
 
@@ -14,15 +14,7 @@
 </div>
 
 
-<div align="center">
-
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
-
-The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
-
-```
-If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives :)
-```
+<div>
 
 ## Architecture
 
