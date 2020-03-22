@@ -15,14 +15,16 @@ app.use(bodyParser.json())
 
 let router = express.Router()
 
-router.get(apiBase + 'cases', (req, res) => {
-    const region = req.query.region
-    const cases = dbHelpers.getCasesByRegion(region)
+router.get(apiBase + 'cases', async (req, res) => {
+    const lat = req.query.lat
+    const long = req.query.long
+    const db = getDb()
+    const cases = await dbHelpers.getCasesByLocation(db, lat, long)
     res.json(cases)
 })
 
 router.get(apiBase, (req, res) => {
-    res.json({message: 'hooray! welcome to our api! GET /cases?region=x for data.'})
+    res.json({message: 'hooray! welcome to our api! GET /cases?lat=42.1&long=42.1 for data.'})
 })
 
 app.use(apiBase, router)

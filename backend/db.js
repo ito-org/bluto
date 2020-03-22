@@ -19,7 +19,7 @@ const initDb = (cb) => {
             return(cb(err))
         }
         console.log('DB initialized.')
-        _db = db
+        _db = db.db('bluto')
         return cb(null, _db)
     })
     return true
