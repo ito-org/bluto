@@ -48,8 +48,8 @@ Veraltete Schlüssel werden aus der Datenbank regelmäßig gelöscht, da diese n
 
 ## Komponenten
 
-* [Smartphone App](frontend/Readme.md)
-* [Backend Server](backend/Readme.md)
+* [Smartphone App](frontend/README.md)
+* [Backend Server](backend/README.md)
 
 ## Ausblick
 
