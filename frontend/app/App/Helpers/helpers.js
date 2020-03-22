@@ -7,7 +7,8 @@ export const getStatusAttributes = (num, isInfected) => {
       left: null,
       bottom: null
     },
-    image: null
+    image: null,
+    infoText: null
   }
 
   if(!isInfected) {
@@ -17,6 +18,7 @@ export const getStatusAttributes = (num, isInfected) => {
       attributes.color.left = '#77B576'
       attributes.color.bottom = '#286C45'
       attributes.image = Images.greenBluto
+      attributes.infoText = ''
     }
 
     else if (num < 50) {
@@ -25,6 +27,7 @@ export const getStatusAttributes = (num, isInfected) => {
       attributes.color.left = '#FDD46B'
       attributes.color.bottom = '#F3BF39'
       attributes.image = Images.yellowBluto
+      attributes.infoText = 'Versuche, deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen COVID-19.'
 
     }
 
@@ -34,6 +37,7 @@ export const getStatusAttributes = (num, isInfected) => {
       attributes.color.left = '#E27F5F'
       attributes.color.bottom = '#CE693D'
       attributes.image = Images.orangeBluto
+      attributes.infoText = 'Du solltest deine Kontakte stark reduzieren! Das hilft dir und uns allen im Kampf gegen COVID-19.'
 
     }
   }

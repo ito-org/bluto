@@ -3,6 +3,7 @@ import React, { Fragment } from 'react'
 import {Text} from 'react-native'
 import styled from 'styled-components'
 import * as S from 'App/Theme/SharedComponents'
+import * as helpers from 'App/Helpers/helpers'
 import { ApplicationStyles, Colors, Images, Metrics } from 'App/Theme'
 
 const $BoxContainer = styled.View`
@@ -25,7 +26,7 @@ const InfoBox  = ({amountContacts, infoText, isInfected}) => {
         <Fragment>
           <S.MediumText style={{ textAlign: 'center' }}>In den letzten 24 Stunden hattest du</S.MediumText>
           <S.ExtraLargeText style={{padding: 10, textAlign: 'center'}}>{amountContacts} Kontakte</S.ExtraLargeText>
-          <S.RegularText style={{ textAlign: 'center' }}>{infoText}</S.RegularText>
+          <S.RegularText style={{ textAlign: 'center' }}>{helpers.getStatusAttributes(amountContacts, isInfected).infoText}</S.RegularText>
         </Fragment>
       }
     </$BoxContainer>

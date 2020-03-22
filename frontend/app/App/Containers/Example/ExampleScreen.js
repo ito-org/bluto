@@ -34,7 +34,7 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.',
 })
 
-class ExampleScreen extends React.Component {
+class StartScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -92,7 +92,7 @@ class ExampleScreen extends React.Component {
   }
 }
 
-ExampleScreen.propTypes = {
+StartScreen.propTypes = {
   user: PropTypes.object,
   userIsLoading: PropTypes.bool,
   userErrorMessage: PropTypes.string,
@@ -108,9 +108,9 @@ const mapStateToProps = (state) => ({
   statusText: 'Ich konnte keinen infizierten \n' +
   'Kontakt feststellen.',
   infoText: 'Versuche deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen Corona',
-  amountContacts: 5,
-  isInfected: true,
-  daysAgo: 4
+  amountContacts: 55,
+  isInfected: false,
+  daysAgo: 2
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -120,4 +120,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ExampleScreen)
+)(StartScreen)
