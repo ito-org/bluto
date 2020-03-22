@@ -44,18 +44,21 @@ const Background = () => {
           <RightSvg
             width="100%"
             height="70%"
+            fill='#E27F5F'
           />
         </SlideIn>
         <SlideIn fromValue={-1000} left='auto'  toValue={-150} position='left'>
           <LeftSvg
             width="100%"
             height="70%"
+            fill='#EB915F'
           />
         </SlideIn>
         <SlideIn fromValue={-1000} left={-30}  toValue={-320} position='bottom'>
           <BottomSvg
             width="100%"
             height="70%"
+            fill='#CE693D'
           />
         </SlideIn>
       </Fragment>
