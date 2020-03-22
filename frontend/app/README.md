@@ -1,9 +1,9 @@
-<div style="display: flex; justify-content: center; aign-items: center;">
+<div align="center" style="display: flex; justify-content: center; align-items: center;">
     <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="450px">
 </div>
 
 
-<div align="center">
+
 
 
 
