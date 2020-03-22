@@ -25,7 +25,9 @@ export const DataInfo = ({text}) => {
   return(
     <$Container>
       <TouchableOpacity style={styles.buttonHint}>
-        <Text style={styles.text}>{text}</Text>
+        <LinearGradient colors={['#F2F2F2', '#F2F2F2', '#F2F2F2']} style={styles.gradient}>
+          <Text style={styles.textHint}>{text}</Text>
+        </LinearGradient>
       </TouchableOpacity>
     </$Container>
   )
@@ -46,11 +48,18 @@ const styles = StyleSheet.create({
     height: 45,
   },
   buttonHint: {
-    borderRadius: 30
+    borderRadius: 30,
+    height: 43,
   },
   text: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold'
+  },
+  textHint: {
+    color: 'black',
+    fontSize: 14,
+    fontWeight: 'normal',
+    padding: 15
   }
 });

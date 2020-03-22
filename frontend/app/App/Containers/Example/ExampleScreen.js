@@ -15,7 +15,11 @@ import InfoBox from '../../Components/InfoBox/InfoBox'
 
 const $ContainerDataInfo = styled.View`
 position: absolute;
-bottom: 15px;
+bottom: 10px;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 /**
  * This is an example of a container component.
@@ -67,7 +71,7 @@ class ExampleScreen extends React.Component {
             <InfoBox {...this.state}/>
             <Buttons.Tips text='Tipps im Kampf gegen Corona' />
             <$ContainerDataInfo>
-              <Buttons.DataInfo text='Tipps im Kampf gegen Corona' />
+              <Buttons.DataInfo text='Wie diese Daten berechnet werden' />
             </$ContainerDataInfo>
           </View>
         )}
