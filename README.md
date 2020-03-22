@@ -1,7 +1,7 @@
 # bluto
 
 <div align="center">
-    <img src="doc/images/Welcome.jpg" alt="Logo" width="500px">
+    <img src="doc/images/Welcome.jpg" alt="Logo" width="400px">
 </div>
 
 bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
