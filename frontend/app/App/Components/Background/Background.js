@@ -1,6 +1,6 @@
-import React, { Fragment, Component } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Dimensions, ImageBackground, Animated } from 'react-native'
+import { Dimensions, ImageBackground, Animated, Easing } from 'react-native'
 import BottomSvg from '../../Assets/Images/Backgrounds/Bottom.svg'
 import LeftSvg from '../../Assets/Images/Backgrounds/Left.svg'
 import RightSvg from '../../Assets/Images/Backgrounds/Right.svg'
@@ -45,25 +45,17 @@ width: ${Math.round(Dimensions.get('window').width)}px;
 
 
 
-class Background extends Component {
-  constructor(props) {
-    super(props);
-    this.animation = new Animated.Value(0);
-  }
-
-  componentDidMount() {
-
-    Animated.loop(
-      Animated.timing(this.animation, {toValue: 1, duration: 2000})
+const Background = () => {
+  const [bottomIn] = useState(new Animated.Value(-1000))
+  React.useEffect(() => {
+    Animated.timing(
+      bottomIn,
+      {
+        toValue: -350,
+        duration: 3000,
+      }
     ).start();
-  }
-
-  render() {
-    const rotation = this.animation.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['0deg', '360deg']
-    })
-
+  }, [])
 
     return (
       <Fragment>
@@ -80,7 +72,7 @@ class Background extends Component {
             height="70%"
           />
         </$Left>
-        <$BottomAnimated  style={{ transform: [{ rotate: rotation }] }}>
+        <$BottomAnimated  style={{ bottom: bottomIn }}>
           <BottomSvg
             width="100%"
             height="70%"
@@ -88,7 +80,6 @@ class Background extends Component {
         </$BottomAnimated>
       </Fragment>
     )
-  }
 }
 
 
