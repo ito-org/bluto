@@ -6,6 +6,12 @@
 
 bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
 
+- [Idee](#idee)
+- [UI](#ui)
+- [Konzept](#konzept)
+- [Komponenten](#komnponenten)
+- [Ausblick](#ausblick)
+
 ## Idee
 
 Wir möchten eine Applikation bereitstellen, welche eine zuverlässige Nachverfolgbarkeit potentiell ansteckender Kontakte ermöglicht. Datensicherheit ist dabei unser höchstes Gebot.
@@ -13,6 +19,11 @@ Wir möchten eine Applikation bereitstellen, welche eine zuverlässige Nachverfo
 Die Funktionsweise ist an der App [TraceTogether](https://www.tracetogether.gov.sg/) angelehnt, welche bereits in Singapur erfolgreich eingesetzt wird. Unser Ziel ist es, eine ähnliche Funktionsweise bei maximaler Transparenz und Datensparsamkeit zu schaffen.
 
 [![#WirVsVirusHack bluto - Die Corona Tracking App](https://img.youtube.com/vi/3TzDoiDh1gQ/0.jpg)](https://www.youtube.com/watch?v=3TzDoiDh1gQ)
+
+## UI
+
+![Splash Screen](doc/images/splash_mock_up.png)
+![Kontakt infiziert](doc/images/infected_contact_mock_up.png)
 
 ## Konzept
 
@@ -58,8 +69,3 @@ Veraltete Schlüssel werden aus der Datenbank regelmäßig gelöscht, da diese n
 ## Ausblick
 
 Eine weitere Idee ist es, das Infektionsrisiko über die Dauer und Entfernung zum Kontakt abzuschätzen. Hierfür wird für jede Begegnung die Dauer und die Verläufe der Signalpegel auf dem Gerät gespeichert. Wird eine Begegnung als Kontakt zu einer infizierten Person eingestuft, werden diese Daten ausgewertet und ein Risikowert ermittelt. Eine eventuelle Empfehlung, ob ein Test auf die Krankheit erfolgen sollte, wird dann unter Berücksichtigung der Berechnung ausgegeben.
-
-## UI
-
-![Splash Screen](doc/images/splash_mock_up.png)
-![Kontakt infiziert](doc/images/infected_contact_mock_up.png)
