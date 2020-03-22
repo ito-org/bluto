@@ -13,4 +13,5 @@ export default {
   primary: '#007bff',
   success: '#28a745',
   error: '#dc3545',
+  blue: '#0A3D92'
 }

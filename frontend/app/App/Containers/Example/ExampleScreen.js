@@ -6,7 +6,7 @@ import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
 import Style from './ExampleScreenStyle'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
-
+import StatusBox from '../../Components/StatusBox/StatusBox'
 /**
  * This is an example of a container component.
  *
@@ -20,6 +20,14 @@ const instructions = Platform.select({
 })
 
 class ExampleScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      statusText: props.statusText
+    };
+  }
+
+
   componentDidMount() {
     this._fetchUser()
   }
@@ -41,26 +49,7 @@ class ExampleScreen extends React.Component {
             <View style={Style.logoContainer}>
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
             </View>
-            <Text style={Style.text}>To get started, edit App.js</Text>
-            <Text style={Style.instructions}>{instructions}</Text>
-            {this.props.userErrorMessage ? (
-              <Text style={Style.error}>{this.props.userErrorMessage}</Text>
-            ) : (
-              <View>
-                <Text style={Style.result}>
-                  {"I'm a fake user, my name is "}
-                  {this.props.user.name}
-                </Text>
-                <Text style={Style.result}>
-                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
-                </Text>
-              </View>
-            )}
-            <Button
-              style={ApplicationStyles.button}
-              onPress={() => this._fetchUser()}
-              title="Refresh"
-            />
+            <StatusBox {...this.state}/>
           </View>
         )}
       </View>
@@ -85,6 +74,8 @@ const mapStateToProps = (state) => ({
   userIsLoading: state.example.userIsLoading,
   userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
+  statusText: 'Ich konnte keinen infizierten \n' +
+  'Kontakt feststellen.'
 })
 
 const mapDispatchToProps = (dispatch) => ({
