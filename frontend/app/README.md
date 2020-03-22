@@ -1,5 +1,5 @@
 <div>
-    <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="100%">
+    <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="728px">
 </div>
 
 
