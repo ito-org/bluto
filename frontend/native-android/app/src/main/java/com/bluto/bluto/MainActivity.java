@@ -5,6 +5,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationListener;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.Manifest;
 import android.content.Context;
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     String result = stringBuilder.toString();
                     Log.d(TAG, "Result: " + result);
                 } catch (IOException e) {
-                    Log.e(TAG, "Could not query API");
+                    Log.e(TAG, "Could not query API. " + e.toString());
                 } finally {
                     if (urlConnection != null) {
                         urlConnection.disconnect();
@@ -129,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
+
+        // TODO: Do this in an async task to avoid networking on main thread
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
