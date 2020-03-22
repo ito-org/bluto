@@ -31,6 +31,7 @@ import com.google.android.gms.nearby.connection.Strategy;
 public class SniffingService extends Service {
 
     private static final String TAG = "BlutoSniffing";
+    private static final int NOTIFICATION_ID = 1;
     public static final String CHANNEL_ID = "SniffingServiceChannel";
     private static final String NEARBY_SERVICE_NAME = "BLUTO_GRANT_DISCOVERY_CONSENT";
 
@@ -52,7 +53,7 @@ public class SniffingService extends Service {
                 .setSmallIcon(R.drawable.ic_stat_name)
                 .setContentIntent(pendingIntent)
                 .build();
-        startForeground(1, notification);
+        startForeground(NOTIFICATION_ID, notification);
         //do heavy work on a background thread
         connectionsClient = Nearby.getConnectionsClient(this);
         startAdvertising();
