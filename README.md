@@ -6,9 +6,10 @@
 
 bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
 
+## Übersicht
 - [Idee](#idee)
-- [UI](#ui)
 - [Konzept](#konzept)
+- [UI](#ui)
 - [Komponenten](#komnponenten)
 - [Ausblick](#ausblick)
 
@@ -19,11 +20,6 @@ Wir möchten eine Applikation bereitstellen, welche eine zuverlässige Nachverfo
 Die Funktionsweise ist an der App [TraceTogether](https://www.tracetogether.gov.sg/) angelehnt, welche bereits in Singapur erfolgreich eingesetzt wird. Unser Ziel ist es, eine ähnliche Funktionsweise bei maximaler Transparenz und Datensparsamkeit zu schaffen.
 
 [![#WirVsVirusHack bluto - Die Corona Tracking App](https://img.youtube.com/vi/3TzDoiDh1gQ/0.jpg)](https://www.youtube.com/watch?v=3TzDoiDh1gQ)
-
-## UI
-
-![Splash Screen](doc/images/splash_mock_up.png)
-![Kontakt infiziert](doc/images/infected_contact_mock_up.png)
 
 ## Konzept
 
@@ -60,6 +56,11 @@ Veraltete Schlüssel werden aus der Datenbank regelmäßig gelöscht, da diese n
 | uuid | lat | long | week |
 | :--- | :-: | :--: | :--: |
 | 84261209-d098-4a22-8772-d669e71b3d86 | 52 | 13 | 2020-12 |
+
+## UI
+
+![Splash Screen](doc/images/splash_mock_up.png)
+![Kontakt infiziert](doc/images/infected_contact_mock_up.png)
 
 ## Komponenten
 
