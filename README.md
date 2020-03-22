@@ -8,6 +8,8 @@ Wir möchten eine Applikation bereitstellen, welche eine zuverlässige Nachverfo
 
 Die Funktionsweise ist an der App [TraceTogether](https://www.tracetogether.gov.sg/) angelehnt, welche bereits in Singapur erfolgreich eingesetzt wird. Unser Ziel ist es, eine ähnliche Funktionsweise bei maximaler Transparenz und Datensparsamkeit zu schaffen.
 
+[![#WirVsVirusHack bluto - Die Corona Tracking App](https://img.youtube.com/vi/3TzDoiDh1gQ/0.jpg)](https://www.youtube.com/watch?v=3TzDoiDh1gQ)
+
 ## Konzept
 
 ### Privacy by Design
