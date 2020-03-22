@@ -24,11 +24,11 @@ Ist eine der hochgeladenen IDs auch auf einem anderen Gerät gespeichert, so war
 
 ### Genaue Messung
 
-Ein großer Vorteil dieses Ansatzes ist zudem, dass der Kontakt zwischen zwei Personen gemessen wird. So sind keine aufwändigen Abgleiche zwischen GPS-Tracks notwending, die zudem häufig ungenau sind oder innerhalb von geschlossenen Gebäuden wie Geschäften oder in der U-Bahn nicht funktionieren.
+Ein großer Vorteil dieses Ansatzes ist zudem, dass der Kontakt zwischen zwei Personen gemessen wird. So sind keine aufwändigen Abgleiche zwischen GPS-Tracks notwendig, die zudem häufig ungenau sind oder innerhalb von geschlossenen Gebäuden wie Geschäften oder in der U-Bahn nicht funktionieren.
 
 ### Skalierbarkeit
 
-Um die herunterzuladene Datenmenge für einen Nutzer zu begrenzen, clustert bluto die hochgeladenen IDs grob nach Region. So müssen nicht alle verfügbaren IDs von jedem Nutzer heruntergeladen werden, sondern nur die für die Region, in der sich der Nutzer selbst aufgehalten hat.
+Um die herunterzuladende Datenmenge für einen Nutzer zu begrenzen, clustert bluto die hochgeladenen IDs grob nach Region. So müssen nicht alle verfügbaren IDs von jedem Nutzer heruntergeladen werden, sondern nur die für die Region, in der sich der Nutzer selbst aufgehalten hat.
 
 Durch die Einordnung der Datensätze in verschiedene Regionen lässt sich bei Bedarf die Serverinfrastruktur einfach erweitern. Es können dadurch Server nach Region gestaffelt aufgesetzt werden (beispielsweise ein Server für 6°E-9°E, einer für 9°E-12°E und einer für 12°E-15°E).
 
@@ -52,3 +52,8 @@ Veraltete Schlüssel werden aus der Datenbank regelmäßig gelöscht, da diese n
 ## Ausblick
 
 Eine weitere Idee ist es, das Infektionsrisiko über die Dauer und Entfernung zum Kontakt abzuschätzen. Hierfür wird für jede Begegnung die Dauer und die Verläufe der Signalpegel auf dem Gerät gespeichert. Wird eine Begegnung als Kontakt zu einer infizierten Person eingestuft, werden diese Daten ausgewertet und ein Risikowert ermittelt. Eine eventuelle Empfehlung, ob ein Test auf die Krankheit erfolgen sollte, wird dann unter Berücksichtigung der Berechnung ausgegeben.
+
+## UI
+
+![Splash Screen](doc\images\splash_mock_up.png)
+![Kontakt infiziert](doc/images/infected_contact_mock_up.png)
