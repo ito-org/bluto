@@ -33,6 +33,18 @@ export const DataInfo = ({text}) => {
   )
 }
 
+export const Infected = ({text}) => {
+  return(
+    <$Container>
+      <TouchableOpacity style={styles.buttonInfected}>
+        <LinearGradient colors={['#EBC45F', '#EDA766', '#EDA766']} style={styles.gradient}>
+          <Text style={styles.textInfected}>{text}</Text>
+        </LinearGradient>
+      </TouchableOpacity>
+    </$Container>
+  )
+}
+
 const styles = StyleSheet.create({
   container: {
     marginTop: 25,
@@ -51,6 +63,10 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     height: 43,
   },
+  buttonInfected: {
+    borderRadius: 5,
+    height: 80
+  },
   text: {
     color: 'white',
     fontSize: 20,
@@ -60,6 +76,12 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 14,
     fontWeight: 'normal',
+    padding: 15
+  },
+  textInfected: {
+    color: 'black',
+    fontSize: 20,
+    fontWeight: 'bold',
     padding: 15
   }
 });

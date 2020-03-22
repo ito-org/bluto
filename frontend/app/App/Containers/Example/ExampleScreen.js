@@ -40,7 +40,8 @@ class ExampleScreen extends React.Component {
     this.state = {
       statusText: props.statusText,
       infoText: props.infoText,
-      amountContacts: props.amountContacts
+      amountContacts: props.amountContacts,
+      isInfected: props.isInfected
     };
   }
 
@@ -64,13 +65,17 @@ class ExampleScreen extends React.Component {
           <ActivityIndicator size="large" color="#0000ff" />
         ) : (
           <View style={{position: 'relative', flex: 1 }}>
-            <Background numContacts={this.state.amountContacts} isInfected={false}/>
+            <Background numContacts={this.state.amountContacts} isInfected={this.state.isInfected}/>
             <View style={Style.logoContainer}>
-              <Image style={Helpers.fullSize} source={helpers.getStatusAttributes(this.state.amountContacts, false).image} resizeMode={'contain'} />
+              <Image style={Helpers.fullSize} source={helpers.getStatusAttributes(this.state.amountContacts, this.state.isInfected).image} resizeMode={'contain'} />
             </View>
             <StatusBox {...this.state}/>
             <InfoBox {...this.state}/>
-            <Buttons.Tips text='Tipps im Kampf gegen Corona' />
+            {!this.state.isInfected ?
+              <Buttons.Tips text='Tipps im Kampf gegen Corona'/>
+              :
+              <Buttons.Infected text={`Verwende diesen Qr-Code\n um dich testen zu lassen.`}/>
+            }
             <$ContainerDataInfo>
               <Buttons.DataInfo text='Wie diese Daten berechnet werden' />
             </$ContainerDataInfo>
@@ -102,7 +107,8 @@ const mapStateToProps = (state) => ({
   statusText: 'Ich konnte keinen infizierten \n' +
   'Kontakt feststellen.',
   infoText: 'Versuche deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen Corona',
-  amountContacts: 105,
+  amountContacts: 5,
+  isInfected: true,
 })
 
 const mapDispatchToProps = (dispatch) => ({
