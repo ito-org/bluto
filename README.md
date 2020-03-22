@@ -32,7 +32,7 @@ Um die herunterzuladene Datenmenge für einen Nutzer zu begrenzen, clustert blut
 
 Durch die Einordnung der Datensätze in verschiedene Regionen lässt sich bei Bedarf die Serverinfrastruktur einfach erweitern. Es können dadurch Server nach Region gestaffelt aufgesetzt werden (beispielsweise ein Server für 6°E-9°E, einer für 9°E-12°E und einer für 12°E-15°E).
 
-Die Datenmenge, die für ein Client herunterladen muss lässt sich hingegen über die Feinheit der Zuordnung zu Regionen einstellen.
+Die Datenmenge, die ein Client herunterladen muss, lässt sich hingegen über die Feinheit der Zuordnung zu Regionen einstellen.
 
 Somit bestehen Stellschrauben sowohl um die Auslastung der Backends als auch die Netzwerklast zum Client kontrollieren zu können.
 
