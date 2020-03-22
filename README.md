@@ -7,11 +7,18 @@
 bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
 
 ## Übersicht
-- [Idee](#idee)
-- [Konzept](#konzept)
-- [UI](#ui)
-- [Komponenten](#komnponenten)
-- [Ausblick](#ausblick)
+
+- [bluto](#bluto)
+  - [Übersicht](#%c3%9cbersicht)
+  - [Idee](#idee)
+  - [Konzept](#konzept)
+    - [Privacy by Design](#privacy-by-design)
+    - [Genaue Messung](#genaue-messung)
+    - [Skalierbarkeit](#skalierbarkeit)
+    - [Beispieldaten](#beispieldaten)
+  - [UI](#ui)
+  - [Komponenten](#komponenten)
+  - [Ausblick](#ausblick)
 
 ## Idee
 
@@ -69,8 +76,8 @@ Veraltete Schlüssel werden aus der Datenbank regelmäßig gelöscht, da diese n
 
 ## Komponenten
 
-* [Smartphone App](frontend/README.md)
-* [Backend Server](backend/README.md)
+- [Smartphone App](frontend/README.md)
+- [Backend Server](backend/README.md)
 
 ## Ausblick
 
