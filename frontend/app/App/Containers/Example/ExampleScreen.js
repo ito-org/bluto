@@ -105,9 +105,6 @@ const mapStateToProps = (state) => ({
   userIsLoading: state.example.userIsLoading,
   userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
-  statusText: 'Ich konnte keinen infizierten \n' +
-  'Kontakt feststellen.',
-  infoText: 'Versuche deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen Corona',
   amountContacts: 55,
   isInfected: false,
   daysAgo: 2

@@ -12,7 +12,7 @@ const $BoxContainer = styled.View`
 
 
 
-const StatusBox  = ({statusText, isInfected, daysAgo}) => {
+const StatusBox  = ({ isInfected, daysAgo}) => {
   return(
     <$BoxContainer>
       {isInfected ?
@@ -27,7 +27,7 @@ const StatusBox  = ({statusText, isInfected, daysAgo}) => {
           color: Colors.white,
           textAlign: 'center',
           fontWeight: 'bold'
-        }}>{statusText}</S.MediumText>
+        }}>Ich konnte keinen infizierten Kontakt feststellen.</S.MediumText>
       }
     </$BoxContainer>
   )
