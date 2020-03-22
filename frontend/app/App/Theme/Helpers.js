@@ -103,6 +103,9 @@ export default StyleSheet.create({
   fullSize: {
     height: '100%',
     width: '100%',
+    position: 'absolute',
+    left: 20,
+    top: 10
   },
   fullWidth: {
     width: '100%',
