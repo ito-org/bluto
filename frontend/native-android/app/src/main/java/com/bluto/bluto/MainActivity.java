@@ -10,7 +10,16 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.app.NotificationCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Intent;
+import android.os.Build;
+import android.os.IBinder;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -39,7 +48,6 @@ import com.google.android.gms.nearby.connection.Strategy;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Bluto";
-    private static final String SERVICE_NAME = "BLUTO_GRANT_DISCOVERY_CONSENT";
 
     private static final String[] REQUIRED_PERMISSIONS =
             new String[] {
@@ -54,68 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_REQUIRED_PERMISSIONS = 1;
 
-    private static final Strategy STRATEGY = Strategy.P2P_STAR;
-
-    // Our handle to Nearby Connections
-    private ConnectionsClient connectionsClient;
-
-    // Callbacks for receiving payloads
-    private final PayloadCallback payloadCallback =
-            new PayloadCallback() {
-                @Override
-                public void onPayloadReceived(String endpointId, Payload payload) {
-                }
-
-                @Override
-                public void onPayloadTransferUpdate(String endpointId, PayloadTransferUpdate update) {
-                }
-            };
-
-    // Callbacks for finding other devices
-    private final EndpointDiscoveryCallback endpointDiscoveryCallback =
-            new EndpointDiscoveryCallback() {
-                @Override
-                public void onEndpointFound(String endpointId, DiscoveredEndpointInfo info) {
-                    Log.i(TAG, "onEndpointFound: endpoint found");
-                    Log.d(TAG, "Endpoint ID: " + endpointId);
-                    Log.d(TAG, "Endpoint Name:" + info.getEndpointName());
-                }
-
-                @Override
-                public void onEndpointLost(String endpointId) {}
-            };
-
-    // Callbacks for connections to other devices
-    private final ConnectionLifecycleCallback connectionLifecycleCallback =
-            new ConnectionLifecycleCallback() {
-                @Override
-                public void onConnectionInitiated(String endpointId, ConnectionInfo connectionInfo) {
-                    Log.i(TAG, "onConnectionInitiated: accepting connection");
-                    connectionsClient.acceptConnection(endpointId, payloadCallback);
-                }
-
-                @Override
-                public void onConnectionResult(String endpointId, ConnectionResolution result) {
-                    if (result.getStatus().isSuccess()) {
-                        Log.i(TAG, "onConnectionResult: connection successful");
-
-                        connectionsClient.stopDiscovery();
-                        connectionsClient.stopAdvertising();
-                    } else {
-                        Log.i(TAG, "onConnectionResult: connection failed");
-                    }
-                }
-
-                @Override
-                public void onDisconnected(String endpointId) {
-                    Log.i(TAG, "onDisconnected: disconnected from endpoint");
-                }
-            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG, "onCreate");
+        Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -127,15 +78,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        connectionsClient = Nearby.getConnectionsClient(this);
-        startAdvertising();
-        startDiscovery();
+        Intent serviceIntent = new Intent(this, SniffingService.class);
+        serviceIntent.putExtra("inputExtra", "Alles liebe, dein Bluto");
+        ContextCompat.startForegroundService(this, serviceIntent);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG, "onStart");
+        Log.d(TAG, "onStart");
 
         if (!hasPermissions(this, REQUIRED_PERMISSIONS)) {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_REQUIRED_PERMISSIONS);
@@ -144,51 +95,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        Log.i(TAG, "onStop");
-        //connectionsClient.stopAllEndpoints();
+        Log.d(TAG, "onStop");
 
         super.onStop();
     }
 
-    private void startAdvertising() {
-        AdvertisingOptions advertisingOptions =
-                new AdvertisingOptions.Builder().setStrategy(STRATEGY).build();
-        connectionsClient
-                .startAdvertising(
-                        "john",
-                        SERVICE_NAME,
-                        connectionLifecycleCallback,
-                        advertisingOptions
-                )
-                .addOnSuccessListener(
-                        (Void unused) -> {
-                            Log.d(TAG, "Bluto is now barking!");
-                        })
-                .addOnFailureListener(
-                        (Exception e) -> {
-                            Log.e(TAG, "Bluto is sick and can't bark!");
-                        });
+    public void startService() {
+        Intent serviceIntent = new Intent(this, SniffingService.class);
+        serviceIntent.putExtra("inputExtra", "Bluto sniffing service");
+        ContextCompat.startForegroundService(this, serviceIntent);
     }
-
-    private void startDiscovery() {
-        DiscoveryOptions discoveryOptions =
-                new DiscoveryOptions.Builder().setStrategy(STRATEGY).build();
-        connectionsClient
-                .startDiscovery(
-                        SERVICE_NAME,
-                        endpointDiscoveryCallback,
-                        discoveryOptions
-                )
-                .addOnSuccessListener(
-                        (Void unused) -> {
-                            Log.d(TAG, "Bluto is now looking for other Blutos!");
-                        })
-                .addOnFailureListener(
-                        (Exception e) -> {
-                            Log.e(TAG, "Bluto can't go looking for other Blutos!");
-                        });
+    public void stopService() {
+        Intent serviceIntent = new Intent(this, SniffingService.class);
+        stopService(serviceIntent);
     }
-
 
 
     /** Returns true if the app was granted all the permissions. Otherwise, returns false. */
