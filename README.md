@@ -4,13 +4,13 @@
     <img src="doc/images/Welcome.jpg" alt="Logo" width="400px">
 </div>
 
-bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
-
 - [Idee](#idee)
 - [UI](#ui)
 - [Konzept](#konzept)
 - [Komponenten](#komnponenten)
 - [Ausblick](#ausblick)
+
+bluto ist deine Spürnase zur Identifikation von Begegnungen mit SARS-CoV-2-Infizierten über Bluetooth Low Energy und Wi-Fi Direct.
 
 ## Idee
 
