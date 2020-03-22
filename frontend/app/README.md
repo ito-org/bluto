@@ -1,22 +1,20 @@
-<div align="center">
-    <img src="App/Assets/Images/TOM-Legend.png" alt="Logo" width="100%">
+<div align="center" style="display: flex; justify-content: center; align-items: center;">
+    <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="450px">
 </div>
 
-![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
-![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thecodingmachine/react-native-boilerplate)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
-![GitHub top language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
 
-# TheCodingMachine React Native boilerplate
 
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
 
-The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
 
-```
-If you love this boilerplate, give us a star, you will be a ray of sunshine in our lives :)
-```
+
+# Bluto Corona Tracker
+
+<div align="center">
+    <img src="App/Assets/Images/DemoGif.gif" alt="Logo" width="300px">
+</div>
+
+
+<div>
 
 ## Architecture
 
@@ -163,3 +161,10 @@ If we look at the rest (and ignore unmaintained projects), many popular boilerpl
 Finally some did not contain the architecture we are looking for (the separation of concerns with Redux, Sagas, etc.), for example [re-start](https://github.com/react-everywhere/re-start).
 
 One interesting exception is [Ignite IR Boilerplate "Andross"](https://github.com/infinitered/ignite-ir-boilerplate-andross), but after consideration we decided not to use it because of the large amount of unnecessary code/components it provided.
+
+
+## How to adapt the ui
+Go to file ExampleScreen.js in function mapStateToProps change the following values:
+1) amountContacts: 5,
+2) isInfected: true,
+3) daysAgo: 5

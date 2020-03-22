@@ -1,5 +1,12 @@
-import { StyleSheet } from 'react-native'
-import { Helpers, Metrics, Fonts, Colors } from 'App/Theme'
+import {
+  StyleSheet
+} from 'react-native'
+import {
+  Helpers,
+  Metrics,
+  Fonts,
+  Colors
+} from 'App/Theme'
 
 export default StyleSheet.create({
   error: {
@@ -16,8 +23,9 @@ export default StyleSheet.create({
   },
   logoContainer: {
     ...Helpers.fullWidth,
-    height: 300,
-    marginBottom: 25,
+    height: 320,
+    marginTop: 35,
+    marginBottom: -15,
   },
   result: {
     ...Fonts.normal,
