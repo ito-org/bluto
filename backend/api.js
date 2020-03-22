@@ -7,7 +7,7 @@ const getDb = require('./db.js').getDb
 const dbHelpers = require('./db-helpers.js')
 
 const apiBase = '/'
-const port = 8080
+const port = process.env.PORT || 8080
 
 const app = express()
 app.use(bodyParser.urlencoded({extended: true}))
@@ -31,6 +31,6 @@ app.use(apiBase, router)
 
 initDb((err) => {
     assert.equal(null, err)
-    app.listen(process.env.PORT || port)
+    app.listen(port)
     console.log('Magic happens on port ' + port)
 })
