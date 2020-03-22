@@ -14,5 +14,11 @@ export default {
     small: '10px',
     medium: '15px',
     large: '25px'
+  },
+  margin: {
+    tiny: '5px',
+    small: '10px',
+    medium: '15px',
+    large: '25px'
   }
 }

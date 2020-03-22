@@ -17,3 +17,8 @@ line-height: 24px;
 export const LargeText = styled.Text`
 font-size: 24px;
 `
+
+export const ExtraLargeText= styled.Text`
+font-size: 42px;
+font-weight: bold;
+`

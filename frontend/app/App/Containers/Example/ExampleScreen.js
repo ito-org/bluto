@@ -1,6 +1,8 @@
 import React from 'react'
 import { Platform, Text, View, Button, ActivityIndicator, Image, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+import * as Buttons from 'App/Components/Buttons/Buttons'
 import { PropTypes } from 'prop-types'
 import ExampleActions from 'App/Stores/Example/Actions'
 import { liveInEurope } from 'App/Stores/Example/Selectors'
@@ -8,7 +10,13 @@ import Style from './ExampleScreenStyle'
 import { ApplicationStyles, Helpers, Images, Metrics } from 'App/Theme'
 import StatusBox from '../../Components/StatusBox/StatusBox'
 import Background from '../../Components/Background/Background'
+import InfoBox from '../../Components/InfoBox/InfoBox'
 
+
+const $ContainerDataInfo = styled.View`
+position: absolute;
+bottom: 15px;
+`
 /**
  * This is an example of a container component.
  *
@@ -25,7 +33,9 @@ class ExampleScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusText: props.statusText
+      statusText: props.statusText,
+      infoText: props.infoText,
+      amountContacts: props.amountContacts
     };
   }
 
@@ -54,9 +64,13 @@ class ExampleScreen extends React.Component {
               <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
             </View>
             <StatusBox {...this.state}/>
+            <InfoBox {...this.state}/>
+            <Buttons.Tips text='Tipps im Kampf gegen Corona' />
+            <$ContainerDataInfo>
+              <Buttons.DataInfo text='Tipps im Kampf gegen Corona' />
+            </$ContainerDataInfo>
           </View>
         )}
-
       </View>
 
     )
@@ -81,7 +95,9 @@ const mapStateToProps = (state) => ({
   userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
   statusText: 'Ich konnte keinen infizierten \n' +
-  'Kontakt feststellen.'
+  'Kontakt feststellen.',
+  infoText: 'Versuche deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen Corona',
+  amountContacts: 120,
 })
 
 const mapDispatchToProps = (dispatch) => ({

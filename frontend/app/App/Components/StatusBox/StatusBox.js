@@ -13,15 +13,11 @@ const $BoxContainer = styled.View`
 
 
 const StatusBox  = ({statusText}) => {
-
-
   return(
     <$BoxContainer>
-      <S.MediumText style={{color: Colors.white, textAlign: 'center'}}>{statusText}</S.MediumText>
+      <S.MediumText style={{color: Colors.white, textAlign: 'center', fontWeight: 'bold'}}>{statusText}</S.MediumText>
     </$BoxContainer>
   )
-
-
 }
 
 export default StatusBox
