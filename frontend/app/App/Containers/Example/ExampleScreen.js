@@ -105,8 +105,8 @@ const mapStateToProps = (state) => ({
   userIsLoading: state.example.userIsLoading,
   userErrorMessage: state.example.userErrorMessage,
   liveInEurope: liveInEurope(state),
-  amountContacts: 5,
-  isInfected: true,
+  amountContacts: 150,
+  isInfected: false,
   daysAgo: 5
 })
 
