@@ -1,5 +1,6 @@
 package com.bluto.bluto;
 
+import android.annotation.SuppressLint;
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationListener;
@@ -77,15 +78,23 @@ public class MainActivity extends AppCompatActivity {
     private static final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
             double lat = location.getLatitude();
+            // TODO: remove line
+            lat = 42.1;
             double lon = location.getLongitude();
+            // TODO: remove line
+            lon = 42.1;
             UUID uuid = UUID.randomUUID();
-            String urlString = API_URL + "?lat=" + lat + "&lon=" + lon;
+            // TODO: round doubles
+            String urlString = API_URL + "?lat=" + lat + "&long=" + lon;
+            Log.d(TAG, "Querying API at: " + urlString);
             try {
                 URL url = new URL(urlString);
                 HttpURLConnection urlConnection = null;
                 try {
                     urlConnection = (HttpURLConnection) url.openConnection();
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    BufferedReader bufferedReader = new BufferedReader(
+                            new InputStreamReader(urlConnection.getInputStream())
+                    );
                     StringBuilder stringBuilder = new StringBuilder();
                     String line;
                     while ((line = bufferedReader.readLine()) != null) {
@@ -136,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         ContextCompat.startForegroundService(this, serviceIntent);
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     protected void onStart() {
         super.onStart();
@@ -143,7 +153,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (hasPermissions(this, REQUIRED_PERMISSIONS)) {
             LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10, locationListener);
+            lm.requestLocationUpdates(
+                    LocationManager.GPS_PROVIDER,
+                    2000,
+                    10,
+                    locationListener
+            );
         } else {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_REQUIRED_PERMISSIONS);
         }
