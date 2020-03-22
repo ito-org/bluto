@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         Intent serviceIntent = new Intent(this, SniffingService.class);
-        serviceIntent.putExtra("inputExtra", "Alles liebe, dein Bluto");
+        serviceIntent.putExtra("inputExtra", "Deine Daten bleiben aber bei dir");
         ContextCompat.startForegroundService(this, serviceIntent);
     }
 
