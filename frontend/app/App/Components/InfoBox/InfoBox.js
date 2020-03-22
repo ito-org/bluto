@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import {Text} from 'react-native'
 import styled from 'styled-components'
 import * as S from 'App/Theme/SharedComponents'
@@ -12,13 +12,22 @@ const $BoxContainer = styled.View`
  margin-top: ${ApplicationStyles.margin.medium}
 `
 
-const InfoBox  = ({amountContacts, infoText}) => {
+const InfoBox  = ({amountContacts, infoText, isInfected}) => {
 
   return(
     <$BoxContainer>
-      <S.MediumText style={{textAlign: 'center'}}>In den letzten 24 Stunden hattest du</S.MediumText>
-      <S.ExtraLargeText style={{padding: 10, textAlign: 'center'}}>{amountContacts} Kontakte</S.ExtraLargeText>
-      <S.RegularText style={{textAlign: 'center'}}>{infoText}</S.RegularText>
+      {isInfected ?
+        <Fragment>
+          <S.MediumText style={{fontWeight: 'bold', padding: 10}}>1. Bitte melde dich telefonisch bei   deinem Hausarzt!</S.MediumText>
+          <S.MediumText style={{fontWeight: 'bold', padding: 10}}>2. Gehe nicht ohne Absprache in   eine Arztpraxis oder Krankenhaus!</S.MediumText>
+        </Fragment>
+        :
+        <Fragment>
+          <S.MediumText style={{ textAlign: 'center' }}>In den letzten 24 Stunden hattest du</S.MediumText>
+          <S.ExtraLargeText style={{padding: 10, textAlign: 'center'}}>{amountContacts} Kontakte</S.ExtraLargeText>
+          <S.RegularText style={{ textAlign: 'center' }}>{infoText}</S.RegularText>
+        </Fragment>
+      }
     </$BoxContainer>
   )
 

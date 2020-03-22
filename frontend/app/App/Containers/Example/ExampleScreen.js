@@ -41,7 +41,8 @@ class ExampleScreen extends React.Component {
       statusText: props.statusText,
       infoText: props.infoText,
       amountContacts: props.amountContacts,
-      isInfected: props.isInfected
+      isInfected: props.isInfected,
+      daysAgo: props.daysAgo
     };
   }
 
@@ -109,6 +110,7 @@ const mapStateToProps = (state) => ({
   infoText: 'Versuche deine Kontakte zu reduzieren. Das hilft dir und uns allen im Kampf gegen Corona',
   amountContacts: 5,
   isInfected: true,
+  daysAgo: 4
 })
 
 const mapDispatchToProps = (dispatch) => ({

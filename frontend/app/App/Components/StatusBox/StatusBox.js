@@ -12,10 +12,23 @@ const $BoxContainer = styled.View`
 
 
 
-const StatusBox  = ({statusText}) => {
+const StatusBox  = ({statusText, isInfected, daysAgo}) => {
   return(
     <$BoxContainer>
-      <S.MediumText style={{color: Colors.white, textAlign: 'center', fontWeight: 'bold'}}>{statusText}</S.MediumText>
+      {isInfected ?
+        <S.MediumText style={{
+          color: Colors.white,
+          textAlign: 'center',
+          fontWeight: 'bold',
+          lineHeight: 24
+        }}>Du hattest vor {daysAgo} Tagen Kontakt mit einer COVID-19-infizierten Person.</S.MediumText>
+        :
+        <S.MediumText style={{
+          color: Colors.white,
+          textAlign: 'center',
+          fontWeight: 'bold'
+        }}>{statusText}</S.MediumText>
+      }
     </$BoxContainer>
   )
 }
