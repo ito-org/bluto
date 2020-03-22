@@ -1,5 +1,8 @@
 package com.bluto.bluto;
 
+import android.location.Location;
+import android.location.LocationManager;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.util.Log;
 import android.Manifest;
@@ -30,6 +33,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.UUID;
+
 import com.google.android.gms.nearby.Nearby;
 import com.google.android.gms.nearby.connection.AdvertisingOptions;
 import com.google.android.gms.nearby.connection.ConnectionInfo;
@@ -55,13 +66,55 @@ public class MainActivity extends AppCompatActivity {
                     Manifest.permission.BLUETOOTH_ADMIN,
                     Manifest.permission.ACCESS_WIFI_STATE,
                     Manifest.permission.CHANGE_WIFI_STATE,
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     Manifest.permission.READ_EXTERNAL_STORAGE,
             };
 
     private static final int REQUEST_CODE_REQUIRED_PERMISSIONS = 1;
 
+    private static final String API_URL = "http://api.bluto.eu:8080/cases";
+    private static final LocationListener locationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {
+            double lat = location.getLatitude();
+            double lon = location.getLongitude();
+            UUID uuid = UUID.randomUUID();
+            String urlString = API_URL + "?lat=" + lat + "&lon=" + lon;
+            try {
+                URL url = new URL(urlString);
+                HttpURLConnection urlConnection = null;
+                try {
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(line).append("\n");
+                    }
+                    bufferedReader.close();
+                    String result = stringBuilder.toString();
+                    Log.d(TAG, "Result: " + result);
+                } catch (IOException e) {
+                    Log.e(TAG, "Could not query API");
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+            } catch (MalformedURLException e) {
+                Log.e(TAG, "Malformed URL " + urlString);
+            }
+        }
+
+        @Override
+        public void onStatusChanged(String s, int i, Bundle bundle) {}
+
+        @Override
+        public void onProviderEnabled(String s) {}
+
+        @Override
+        public void onProviderDisabled(String s) {}
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +141,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Log.d(TAG, "onStart");
 
-        if (!hasPermissions(this, REQUIRED_PERMISSIONS)) {
+        if (hasPermissions(this, REQUIRED_PERMISSIONS)) {
+            LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10, locationListener);
+        } else {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_REQUIRED_PERMISSIONS);
         }
     }
