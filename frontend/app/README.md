@@ -1,14 +1,20 @@
-<div align="center">
-    <img src="App/Assets/Images/TOM-Legend.png" alt="Logo" width="100%">
+<div>
+    <img src="App/Assets/Images/Welcome.jpg" alt="Logo" width="100%">
 </div>
 
-![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
-![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thecodingmachine/react-native-boilerplate)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
-![GitHub top language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
 
-# TheCodingMachine React Native boilerplate
+<div align="center">
+
+
+
+# Bluto Corona Tracker
+
+<div>
+    <img src="App/Assets/Images/DemoGif.gif" alt="Logo" width="100%">
+</div>
+
+
+<div align="center">
 
 This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
 
@@ -167,6 +173,6 @@ One interesting exception is [Ignite IR Boilerplate "Andross"](https://github.co
 
 ## How to adapt the ui
 Go to file ExampleScreen.js in function mapStateToProps change the following values:
--amountContacts: 5,
--isInfected: true,
--daysAgo: 5
+1) amountContacts: 5,
+2) isInfected: true,
+3) daysAgo: 5
