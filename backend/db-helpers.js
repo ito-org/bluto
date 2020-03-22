@@ -33,5 +33,17 @@ module.exports = {
 
         let cases = await db.collection('cases').find({lat: lat, long: long}).toArray()
         return cases
+    },
+
+    insertCases: async (db, cases) => {
+        assert.equal('object', typeof(cases))
+
+        cases.forEach((singleCase) => {
+            assert.equal('object', typeof(singleCase.timestamp))
+            assert.equal('string', typeof(singleCase.UUID))
+            assert.equal('number', typeof(singleCase.lat))
+            assert.equal('number', typeof(singleCase.long))
+            db.collections.insert(singleCase)
+        })
     }
 }
