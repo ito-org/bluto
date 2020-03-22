@@ -4,4 +4,5 @@
 
 export default {
   logo: require('App/Assets/Images/bluto-head-transparent.png'),
+  orangeBluto: require('App/Assets/Images/Dogs/BlutoOrange.png'),
 }

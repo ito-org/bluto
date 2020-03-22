@@ -15,7 +15,7 @@ import InfoBox from '../../Components/InfoBox/InfoBox'
 
 const $ContainerDataInfo = styled.View`
 position: absolute;
-bottom: 10px;
+bottom: 15px;
 width: 100%;
 display: flex;
 justify-content: center;
@@ -65,7 +65,7 @@ class ExampleScreen extends React.Component {
           <View style={{position: 'relative', flex: 1 }}>
             <Background />
             <View style={Style.logoContainer}>
-              <Image style={Helpers.fullSize} source={Images.logo} resizeMode={'contain'} />
+              <Image style={Helpers.fullSize} source={Images.orangeBluto} resizeMode={'contain'} />
             </View>
             <StatusBox {...this.state}/>
             <InfoBox {...this.state}/>
