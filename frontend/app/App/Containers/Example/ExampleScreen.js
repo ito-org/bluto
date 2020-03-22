@@ -15,7 +15,7 @@ import InfoBox from '../../Components/InfoBox/InfoBox'
 
 const $ContainerDataInfo = styled.View`
 position: absolute;
-bottom: 15px;
+bottom: 10px;
 width: 100%;
 display: flex;
 justify-content: center;
