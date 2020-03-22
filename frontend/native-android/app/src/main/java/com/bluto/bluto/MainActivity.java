@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onEndpointFound(String endpointId, DiscoveredEndpointInfo info) {
                     Log.i(TAG, "onEndpointFound: endpoint found");
                     Log.d(TAG, "Endpoint ID: " + endpointId);
-                    Log.d(TAG, "Endpoint Info:" + info);
+                    Log.d(TAG, "Endpoint Name:" + info.getEndpointName());
                 }
 
                 @Override
@@ -155,7 +155,8 @@ public class MainActivity extends AppCompatActivity {
                 new AdvertisingOptions.Builder().setStrategy(STRATEGY).build();
         connectionsClient
                 .startAdvertising(
-                        "john", SERVICE_NAME,
+                        "john",
+                        SERVICE_NAME,
                         connectionLifecycleCallback,
                         advertisingOptions
                 )
