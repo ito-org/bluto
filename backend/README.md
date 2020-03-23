@@ -1,6 +1,6 @@
 # bluto - backend
 
-Webserver für die Abfrage, welche Nutzer (UUIDs) positiv auf SARS-CoV-2 getestet wurden.
+Webserver für die Abfrage, welche Nutzer (UUIDs) positiv auf SARS-CoV-2 getestet wurden. Verbindet sich mit einem MongoDB-Datenbankserver.
 
 ## Setup
 
