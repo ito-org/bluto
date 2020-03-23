@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Bluto</string>
+    <string name="app_name">bluto</string>
 
     <string name="notification_title">I am sniffing for you</string>
     <string name="notification_message">But your data stays on your device</string>
-    <string name="notification_channel">Notifications about COVID-19 contact tracing activity</string>
+    <string name="notification_channel">Tracing service notification channel</string>
+    <string name="error_missing_permissions">bluto needs these permissions to help you</string>
 </resources>

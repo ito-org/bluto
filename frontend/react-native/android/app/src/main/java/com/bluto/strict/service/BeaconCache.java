@@ -52,13 +52,14 @@ public class BeaconCache {
         CacheEntry entry = cache.get(hashString);
 
         if (entry == null) {
-            // new unknown broadcast
+            Log.i(LOG_TAG, "Received new broadcast (other device is unknown)");
             entry = new CacheEntry();
             cache.put(hashString, entry);
             entry.hash = hash;
             entry.firstReceived = System.currentTimeMillis();
         }
 
+        Log.d(LOG_TAG, "Received old broadcast (other device is known)");
         entry.lastReceived = System.currentTimeMillis();
 
         // postpone flushing
@@ -76,6 +77,7 @@ public class BeaconCache {
             }
             if (avg < entry.lowestDistance) {
                 //insert new lowest value to DB
+                Log.d(LOG_TAG, "New lowest distance for entry " + entry.hash);
                 entry.lowestDistance = avg;
                 //insertIntoDB(hash, avg);
             }
@@ -85,10 +87,10 @@ public class BeaconCache {
 
     private void insertIntoDB(byte[] hash, double distance, long startTime, long duration) {
         broadcastRepository.insertBeacon(new Beacon(
-                hash,
-                new Date(startTime),
-                duration,
-                distance
+            hash,
+            new Date(startTime),
+            duration,
+            distance
         ));
     }
 

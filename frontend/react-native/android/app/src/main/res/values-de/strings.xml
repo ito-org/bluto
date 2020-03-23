@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Bluto</string>
+    <string name="app_name">bluto</string>
 
     <string name="notification_title">Ich schnüffle für dich</string>
     <string name="notification_message">Deine Daten bleiben aber bei dir</string>
-    <string name="notification_channel">Benachrichtigungen über COVID-19 Kontaktaufzeichnung</string>
+    <string name="notification_channel">Schnüffeldienst-Benachrichtigungskanal</string>
+    <string name="error_missing_permissions">bluto braucht diese Berechtigungen um dir zu helfen</string>
 </resources>

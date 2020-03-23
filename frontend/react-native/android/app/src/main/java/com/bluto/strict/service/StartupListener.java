@@ -14,7 +14,7 @@ This BroadcastReceiver starts the tracing service when the system boots
 public class StartupListener extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()))
+        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()))
         {
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {

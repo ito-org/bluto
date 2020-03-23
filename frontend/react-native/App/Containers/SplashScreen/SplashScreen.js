@@ -9,7 +9,7 @@ export default class SplashScreen extends React.Component {
       <View style={[Helpers.fillRowCenter, styles.container]}>
         <View style={[Helpers.center, styles.logo]}>
           {/* You will probably want to insert your logo here */}
-          <Text>LOGO</Text>
+          <Text>bluto</Text>
         </View>
       </View>
     )

@@ -5,8 +5,11 @@ import android.bluetooth.le.AdvertiseCallback;
 import android.bluetooth.le.AdvertiseData;
 import android.bluetooth.le.AdvertiseSettings;
 import android.bluetooth.le.BluetoothLeAdvertiser;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import static com.bluto.strict.service.TracingService.BLUETOOTH_SIG;
 
@@ -35,6 +38,7 @@ public class BleAdvertiser {
         startAdvertising();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void startAdvertising() {
         AdvertiseSettings settings = new AdvertiseSettings.Builder()
                 .setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY)
@@ -74,6 +78,7 @@ public class BleAdvertiser {
         bluetoothLeAdvertiser.startAdvertising(settings, data, bluetoothAdvertiseCallback);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void stopAdvertising() {
         Log.d(LOG_TAG, "Stopping advertising");
         if (bluetoothAdvertiseCallback != null) {

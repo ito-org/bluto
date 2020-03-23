@@ -17,6 +17,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
+import androidx.annotation.RequiresApi;
+
 import static com.bluto.strict.service.TracingService.BLUETOOTH_SIG;
 import static com.bluto.strict.service.TracingService.BROADCAST_LENGTH;
 import static com.bluto.strict.service.TracingService.HASH_LENGTH;
@@ -28,16 +30,17 @@ public class BleScanner {
     private ScanCallback bluetoothScanCallback;
     private BeaconCache beaconCache;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public BleScanner(BluetoothAdapter bluetoothAdapter, BeaconCache beaconCache) {
         bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
         this.beaconCache = beaconCache;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void startScanning() {
         Log.d(LOG_TAG, "Starting scan");
         bluetoothScanCallback = new ScanCallback() {
             public void onScanResult(int callbackType, ScanResult result) {
-
                 Log.d(LOG_TAG, "onScanResult");
 
                 ScanRecord record = result.getScanRecord();
@@ -91,6 +94,7 @@ public class BleScanner {
         bluetoothLeScanner.startScan(Collections.singletonList(filter), settingsBuilder.build(), bluetoothScanCallback);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void stopScanning() {
         Log.d(LOG_TAG, "Stopping scanning");
         if(bluetoothScanCallback != null) {

@@ -18,6 +18,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 import com.bluto.MainActivity;
@@ -86,9 +87,11 @@ public class TracingService extends Service {
         return (byte) -65;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(LOG_TAG, "onCreate");
         broadcastRepository = new BroadcastRepository(this.getApplication());
         HandlerThread thread = new HandlerThread("TrackerHandler", Thread.NORM_PRIORITY);
         thread.start();
@@ -136,7 +139,7 @@ public class TracingService extends Service {
                 DEFAULT_NOTIFICATION_CHANNEL)
                 .setContentTitle(getText(R.string.notification_title))
                 .setContentText(getText(R.string.notification_message))
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.mipmap.bluto)
                 .setContentIntent(pendingIntent)
                 .setPriority(NotificationManager.IMPORTANCE_LOW)
                 .setVibrate(null)
